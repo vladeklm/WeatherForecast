@@ -7,7 +7,7 @@ import java.net.http.HttpResponse;
 
 public final class WeatherService {
     private String urlStr;
-    private RequestParams requestParams;
+    private final RequestParams requestParams;
 
     public WeatherService(RequestParams requestParams) {
         urlStr = WeatherSettings.BASE_URL;
@@ -21,11 +21,11 @@ public final class WeatherService {
         return response.body();
     }
 
-    private HttpRequest createRequest() throws URISyntaxException {
+    private HttpRequest createRequest()  {
         this.addLocation();
         this.addDates();
         this.addApiKey();
-        var request = HttpRequest.newBuilder()
+        HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(urlStr))
                 .headers("Content-Type","application/json")
                 .GET()

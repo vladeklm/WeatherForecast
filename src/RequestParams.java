@@ -1,10 +1,10 @@
 import java.util.Locale;
 
 public class RequestParams {
-    private String startDate;
-    private String endDate;
-    private Double latitude;
-    private Double longitude;
+    private final String startDate;
+    private final String endDate;
+    private final Double latitude;
+    private final Double longitude;
 
     public RequestParams(String startDate, String endDate, Double latitude, double longitude){
         this.startDate = startDate;
